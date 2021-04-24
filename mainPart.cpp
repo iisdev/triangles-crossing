@@ -15,7 +15,7 @@ public:
     polygon(int n); // DONE
     polygon( polygon&, int n); // DONE
     ~polygon(); // DONE
-    polygon& operator=( polygon&);
+    polygon& operator=( polygon&); //DONE
     point& operator[] (int); // DONE
     friend ostream& operator<<(ostream&, const polygon&); // DONE
     polygon operator*(const polygon&);
@@ -75,8 +75,11 @@ polygon& polygon::operator=( polygon& obj) // = copy func
 {
     if (this == &obj)
         return *this;
+
+    // delete old data and copy new
     delete [] A;
     N = obj.len();
+
     if (N)
     {
         A = new point[N];
